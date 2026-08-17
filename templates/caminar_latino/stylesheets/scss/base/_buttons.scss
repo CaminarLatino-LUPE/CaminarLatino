@@ -1,0 +1,199 @@
+@use '../base';
+@use 'sass:list';
+
+@mixin button-variant($color, $background, $color-hover,  $background-hover) {
+    color: $color;
+    background: $background;
+    border: 1px solid $background;  
+  &:hover {  
+    color: $color-hover;
+    background: $background-hover;
+    border: 1px solid $background;
+  }  
+  &:focus, &.focus {
+    color: $color;
+    background: $background;
+  }
+  &:active, &.active {
+    color: $color;
+    background: $background;
+  }
+  &.disabled, &[disabled], fieldset[disabled] & {
+    &:hover, &:focus, &.focus {
+    color: $color;
+    background: $background;
+    }
+  }
+}
+
+
+.btn, a.btn {
+  display: inline-block;
+  padding: 18px 60px;
+  color: #000;
+  background: var(--color-gray--light);
+  border: 1px solid var(--color-gray--light);
+  border-radius: 30px;
+  font: 600 18px/18px 'Barlow', sans-serif;
+  letter-spacing: 1px;
+  text-align: center;
+  text-shadow: none;
+  text-decoration: none;
+  z-index: 1;
+  cursor: pointer;
+  user-select: none;
+  transition: all .3s cubic-bezier(.08,.59,.75,.91);
+	&, &:active, &.active {
+		&:focus, &.focus {
+			outline: 5px auto -webkit-focus-ring-color;
+			outline-offset: -2px;
+		}
+	}   
+	&:hover, &:focus, &.focus {
+		text-decoration: none;
+    background: #eff2f6;
+    border-color: var(--color-gray--light);
+	}
+	&:active, &.active {
+		outline: 0;
+		background-image: none;
+	} 
+  a {
+    color: var(--color-black);
+    text-decoration: none;
+  } 
+}
+
+.btn-primary, a.btn-primary {
+  @include button-variant(var(--color-black), var(--color-yellow), var(--color-black), var(--color-yellow--light));
+}
+
+
+.btn-green, a.btn-green {
+  @include button-variant(#FFF, var(--color-green), #FFF, var(--color-green));
+}
+
+.btn-video, a.btn-video {
+  width: 60px;
+  height: 60px;
+  padding: 10px;
+  line-height: 45px;
+  color: var(--brand-primary);
+  background: var(--brand-accent);
+  border-radius: 50%;
+  box-shadow: none;
+  &:hover {
+    color: #FFF;
+  }
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--brand-accent);
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 currentColor;
+    animation: button-ripple 3s infinite;
+    opacity: .6;
+    z-index: -1;
+  }
+  &:before {
+    animation-delay: .9s;
+  }
+  &:after {
+    animation-delay: .3s;
+  }  
+  i {
+    font-size: 18px;
+  }
+}
+
+
+
+button.navbar-toggle {
+  background: transparent;
+  fill: var(--brand-primary);
+  transition: transform .3s ease;
+  svg {
+    fill: #FFF;
+    overflow: visible;
+  }
+  rect {
+    transition: all .3s ease;
+  }
+  &.open {
+    rect:nth-child(1) {
+      transform: rotate(45deg) translate(-10px,4px);
+      transform-origin: left top;
+    }
+    rect:nth-child(2) {
+      opacity: 0;
+    }
+    rect:nth-child(3) {
+      transform: rotate(-45deg);
+      transform-origin: left bottom;
+    }        
+  }
+  @media (min-width: base.$screen-desktop) {
+    display: none;
+  }
+}
+
+button.close {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  outline: hidden;
+  cursor: pointer;
+  transition: all .3s ease;
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    top: 19px;
+    left: 5px;
+    height: 2px;
+    width: 30px;
+    background: var(--text-color);
+    transform-origin: center;
+    transition: .3s ease;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
+
+}
+
+
+.btn-escape {
+  display: none;
+  padding: 12px 30px;
+  border-radius: 0 30px 30px 0;
+  @media (min-width: base.$screen-desktop) {
+    display: initial;
+    position: fixed;
+    bottom: 100px;
+    left: 0;
+    z-index: list.index(base.$elements, btn-escape);
+  }
+}
+
+
+@keyframes button-ripple {
+  70% {
+    -webkit-box-shadow:0 0 0 var(--glow-size,15px) currentColor;
+    box-shadow:0 0 0 var(--glow-size,15px) currentColor;
+    opacity:0
+  }
+  100% {
+    -webkit-box-shadow:0 0 0 0 currentColor;
+    box-shadow:0 0 0 0 currentColor;
+    opacity:0
+  }
+}

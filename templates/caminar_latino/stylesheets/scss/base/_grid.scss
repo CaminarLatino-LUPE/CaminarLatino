@@ -1,0 +1,51 @@
+@use '../base';
+
+.container {
+	width: 100%;
+    max-width: 1400px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+.full-width {
+    @include base.clearfix;
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;    
+    margin-right: -50vw;
+    margin-left: -50vw;   
+}
+
+.flex-outer {
+    text-align: center;
+    @media (min-width: base.$screen-desktop) {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        column-gap: 40px;
+        text-align: initial;
+    }
+}
+
+.flex-inner {      
+    widows: 100%;        
+    @media (min-width: base.$screen-desktop) {
+        display: flex;  
+        margin: 0 -20px;
+    }
+}
+
+
+.flex-half {
+    @media (min-width: base.$screen-desktop) {
+        width: calc(50% - 20px);
+    }
+}
+
+.flex-third {
+    margin: 20px 0;
+    @media (min-width: base.$screen-desktop) {
+        width: calc(33% - 20px);
+    }
+}

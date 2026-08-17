@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="content" method="upgrade">
+	<name>plg_content_articlehero</name>
+	<author>Sal Bernal</author>
+	<creationDate>August 2022</creationDate>
+	<copyright>(C) 2010 Open Source Matters, Inc.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>sbernal@caminarlatino.org</authorEmail>
+	<authorUrl>www.caminarlatino.org</authorUrl>
+	<version>3.0.0</version>
+	<description>PLG_CONTENT_ARTICLEHERO_XML_DESCRIPTION</description>
+	<namespace path="src">Joomla\Plugin\Content\Articlehero</namespace>
+	<files>
+		<filename plugin="articlehero">articlehero.php</filename>
+		<folder>src</folder>
+		<folder>language</folder>
+	</files>
+</extension>

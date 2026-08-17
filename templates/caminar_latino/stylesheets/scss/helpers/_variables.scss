@@ -1,0 +1,53 @@
+:root {
+	--color-navy: #093493;
+	--color-blue: #2C6CE2;
+	--color-green: #139650;
+	--color-yellow: #F9D801;
+	--color-yellow--light: #fff4a5;
+	--color-orange: #FB7C2D;
+	--color-red: #E3224E;
+	--color-beige: #FFF9EB;
+	--color-black: #111111;
+	--color-gray: #7a7a7a;
+	--color-gray--light: #dfe6f6;	
+
+
+
+	--background-color: #ffffff;
+	--text-color: var(--color-black);
+	--btn-default-color: var(--color-gray);
+
+	// Fonts
+	--font-size-base: 18px;
+	--font-family-base:  'Mona Sans', sans-serif;
+	--font-family-heading: 'Barlow', sans-serif;
+
+
+	--line-height-base: 1.5;
+	--line-height-computed:    34px; 
+
+	--border-radius: 8px;
+
+	--link-color: var(--brand-accent);
+	--link-color--hover: hsl(124, 96%, 36%);
+
+}
+
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);  
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  @return $string;
+}
+
+
+
+
+// Breakbpoints  (Can't use CSS Variables in Media Queries)
+$screen-mobile: 580px;
+$screen-tablet: 768px;
+$screen-desktop: 1024px;
+$screen-wide: 1280px;
+
+

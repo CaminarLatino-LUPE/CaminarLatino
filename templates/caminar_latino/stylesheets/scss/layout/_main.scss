@@ -1,0 +1,9 @@
+@use '../base';
+@use 'sass:list';
+
+main {
+  margin: 0 0 60px;
+  padding: 20px 0;
+  @include base.clearfix;
+}
+

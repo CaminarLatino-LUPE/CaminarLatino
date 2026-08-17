@@ -1,0 +1,156 @@
+@use '../base';
+@use 'sass:list';
+
+footer {
+	padding: 100px 20px 0;
+	color: #FFF;
+	background: #000;	
+	overflow: hidden;
+	section {
+		margin: 0;
+	}
+	h2 {
+		color: #FFF;
+		font-size: 28px;
+		line-height: 28px;
+		font-weight: 600;
+	}
+	ul {
+		margin: 0;
+		list-style: inside none;
+	}
+	svg {
+		fill: #FFF;
+	}
+	.main-menu {
+		max-width: 160px;
+		a {
+			color: var(--brand-primary);
+		}
+	}
+	.social-media {
+		display: flex;
+		column-gap: 40px;
+		justify-content: center;
+		text-align: center;
+		a {
+			border: none;
+		}
+		svg {
+			width: 20px;
+			height: 20px;
+			fill: #FFF;
+		}
+	}
+	a {
+		color: #FFF;
+		border: none;
+	}
+}
+
+
+.footer-top {
+	display: flex;
+	flex-direction: column;
+	row-gap: 40px;
+	column-gap: 60px;
+	flex-wrap: wrap;
+	max-width: 1600px;
+	margin: 0 auto 20px;
+	padding: 0 0 40px;
+	border-bottom: 1px solid #FFF;
+	@media (min-width: base.$screen-desktop) {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
+
+.footer-1 {
+	width: 100%;
+	@media (min-width: base.$screen-wide) {
+		width: 70%;
+	}
+}
+
+
+.footer-2 {
+	width: 100%;
+	@media (min-width: base.$screen-wide) {
+		width: 22%;
+	}
+}
+
+
+.footer-nav  {
+	color: #FFF;
+	font-size: 16px;
+	line-height: 16px;
+	> div {
+		text-align: center;
+		@media (min-width: base.$screen-desktop) {
+			display: flex;
+			justify-content: space-between;
+			column-gap: 60px;
+			text-align: initial;
+		}
+		@media (min-width: base.$screen-wide) {
+
+		}
+	}
+	li {
+		margin: 0 0 20px;
+	}
+}
+
+.footer-bottom {
+	max-width: 1600px;
+	margin: 0 auto 60px;
+}
+
+.footer-3-body {
+	> div {		
+		display: flex;
+		flex-direction: column;		
+		row-gap: 10px;
+		text-align: center;
+		> div {
+			&:first-of-type {
+				order: 3;
+			}
+			&:nth-of-type(2) {
+				order: 2;
+			}
+			&:last-of-type {
+				order: 1;
+			}			
+		}
+		@media (min-width: base.$screen-desktop) {	
+			flex-direction: row;		
+			column-gap: 20%;
+			> div {
+				&:first-of-type {
+					order: 1;
+				}
+				&:nth-of-type(2) {
+					order: 2;
+				}
+				&:last-of-type {
+					order: 3;
+				}					
+			}					
+		}
+	}
+}
+
+
+
+.disclaimer {
+	font-size: 14px;
+	line-height: 18px;
+}
+
+.copyright {
+	small {
+		float: right;
+	}
+}

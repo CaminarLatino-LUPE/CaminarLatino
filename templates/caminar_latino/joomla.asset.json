@@ -1,0 +1,15 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "caminar_latino",
+  "version": "5.0.0",
+  "description": "This file contains details of the assets used by the Caminar Latino Joomla 5 site template.",
+  "license": "GPL-2.0-or-later",
+  "assets": [
+    {
+      "name": "styles",
+      "description": "The main css file to be used.",
+      "type": "style",
+      "uri": "styles.min.css"
+    }
+  ]
+}

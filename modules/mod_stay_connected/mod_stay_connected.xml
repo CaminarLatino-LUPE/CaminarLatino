@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" client="site" method="upgrade">
+  <name>MOD_STAY_CONNECTED</name>
+  <author>Sal Bernal</author>
+  <creationDate>June 2026</creationDate>
+  <copyright>2025 Caminar Latino</copyright>
+  <authorEmail>sbernal@caminarlatino.org</authorEmail>
+  <authorUrl>www.caminarlatino.org</authorUrl>
+  <version>1.0.0</version>
+  <description>MOD_STAY_CONNECTED_DESCRIPTION</description>
+  <namespace path="src">Joomla\Module\Stay_connected</namespace>
+	 
+	<files>
+    <folder>src</folder>
+		<folder>language</folder>
+    <folder>tmpl</folder>
+    <folder>assets</folder>
+		<filename module="mod_stay_connected">mod_stay_connected.php</filename>
+    <filename>helper.php</filename>
+	</files>
+	
+	<languages folder="language">
+    	<language tag="en-GB">en-GB/en-GB.mod_stay_connected.ini</language>
+    	<language tag="en-GB">en-GB/en-GB.mod_stay_connected.sys.ini</language>
+  	</languages>
+  	
+  <config>
+    <fields name="params">
+      <fieldset name="basic" addfieldprefix="Joomla\Component\Menus\Administrator\Field">   
+        <!-- title -->  
+        <field
+          description="MOD_STAY_CONNECTED_TITLE_DESC"
+          label="MOD_STAY_CONNECTED_TITLE_LABEL"
+          name="title"
+          type="text"
+          filter="safehtml" />              
+        <!-- intro -->  
+        <field
+          description="MOD_STAY_CONNECTED_INTRO_DESC"
+          label="MOD_STAY_CONNECTED_INTRO_LABEL"
+          name="intro_text"
+          type="textarea"
+          filter="safehtml" />                 
+        <!-- captcha_site -->  
+        <field
+          description="MOD_STAY_CONNECTED_CAPTCHA_SITE_DESC"
+          label="MOD_STAY_CONNECTED_CAPTCHA_SITE_LABEL"
+          name="captcha_site"
+          type="text"
+          filter="safehtml" />      
+        <!-- captcha_secret -->  
+        <field
+          description="MOD_STAY_CONNECTED_CAPTCHA_SECRET_DESC"
+          label="MOD_STAY_CONNECTED_CAPTCHA_SECRET_LABEL"
+          name="captcha_secret"
+          type="text"
+          filter="safehtml" />                                                                                      
+      </fieldset>
+
+      <fieldset name="advanced">
+        <field
+          name="layout"
+          type="modulelayout"
+          label="JFIELD_ALT_LAYOUT_LABEL"
+          class="form-select"
+          validate="moduleLayout"
+        />
+        <field
+          name="moduleclass_sfx"
+          type="textarea"
+          label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+          rows="3"
+          validate="CssIdentifier"
+        />
+      </fieldset>      
+    </fields>
+  </config>
+</extension>
+
+

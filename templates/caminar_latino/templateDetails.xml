@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="template" client="site">
+	<name>Caminar Latino</name>
+	<version>1.0</version>
+	<creationDate>May 2026</creationDate>
+	<author>Joomla! Project</author>
+	<authorEmail>tech@caminarlatino.org</authorEmail>
+	<copyright>(C) 2017 Open Source Matters, Inc.</copyright>
+	<description>TPL_CAMINAR_LATINO_XML_DESCRIPTION</description>
+	<inheritable>1</inheritable>
+	<files>
+		<filename>component.php</filename>
+		<filename>error.php</filename>
+		<filename>index.php</filename>
+		<filename>joomla.asset.json</filename>
+		<filename>offline.php</filename>
+		<filename>templateDetails.xml</filename>
+		<folder>html</folder>
+	    <folder>js</folder>
+	    <folder>stylesheets</folder>
+	    <folder>images</folder>
+	    <folder>fonts</folder>		
+	</files>
+	<media destination="templates/site/caminar_latino" folder="media">
+		<folder>js</folder>
+		<folder>css</folder>
+		<folder>scss</folder>
+		<folder>images</folder>
+	</media>
+	<positions>
+	    <position>main-nav</position>
+	    <position>header-right</position>
+	    <position>breadcrumbs</position>
+	    <position>hero</position>
+	    <position>aside</position>
+	    <position>content-bottom</position>
+	    <position>debug</position>
+	    <position>banner</position>
+	    <position>footer-1</position>
+	    <position>footer-2</position>
+	    <position>footer-3</position>
+	    <position>modal</position>
+	</positions>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/tpl_caminar_latino.ini</language>
+		<language tag="en-GB">en-GB/tpl_caminar_latino.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="advanced">
+				<field
+					name="logo_svg"
+					type="textarea"
+					default=""
+					label="TPL_CAMINAR_LATINO_LOGO_SVG"
+					filter="safehtml"
+				/>
+				<field
+					name="gtm_number"
+					type="text"
+					default=""
+					label="TPL_CAMINAR_LATINO_GTM_NUMBER"
+					filter="safehtml"
+				/>				
+			</fieldset>
+		</fields>	
+	</config>
+</extension>

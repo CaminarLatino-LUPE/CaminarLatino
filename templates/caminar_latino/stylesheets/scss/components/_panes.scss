@@ -1,0 +1,43 @@
+.pane {
+	margin: 0 0 20px;
+	> * {
+		margin: 0;
+	}
+}
+
+.pane-heading {	
+	position: relative;
+	padding: 10px 60px 10px 20px;
+	cursor: pointer;
+	&:after {
+		content: '';
+		position: absolute;
+		display: inline-block;
+		top: 50%;
+		right: 40px;
+		width: 0;
+		height: 0;
+		margin-top: -5px;
+		border-style: solid;
+		border-width: 10px 10px 0;
+		border-color: var(--text-color) transparent transparent;
+		transform-origin: center center;
+		transform: rotate(0deg);
+		transition: transform .3s cubic-bezier(.3,.47,.84,.66);
+	}
+	&.open {
+		&:after {
+			transform: rotate(180deg);					
+		}
+	}	
+	h2, h3, h4 {
+		margin: 0;
+	}
+}
+
+.pane-body {
+	display: none;
+	padding: 20px;
+}
+
+
