@@ -1,11 +1,11 @@
 "use strict";
 
-	var recaptchaStayConnectedSubmit =  (token) =>  {
-		MODSTAYCONNECTED.sendInfo(token);
+	var recaptchaLearnMoreSubmit =  (token) =>  {
+		MODLEARNMORE.sendInfo(token);
 	}
 
 
-	let MODSTAYCONNECTED = {
+	let MODLEARNMORE = {
 		myForm: null,
 		alertContainer: null,
 
@@ -24,14 +24,14 @@
 					e.preventDefault();
 
 					// get recaptcha widgetId
-					let widgetId = document.getElementById('recaptcha1').getAttribute('data-widgetid');	
+					let widgetId = document.getElementById('recaptcha5').getAttribute('data-widgetid');	
 									
 					// disable all form inputs to prevent double entry
 					[].forEach.call(this, function(input){						
 						input.setAttribute('disabled', true);
 					});			
 
-					if(MODSTAYCONNECTED.validateInput(this)) {
+					if(MODLEARNMORE.validateInput(this)) {
 						// Trigger AJAX function
 
 						grecaptcha.execute(widgetId);
@@ -68,6 +68,12 @@
 			}
 
 
+			// Type
+			if(!document.querySelector('.checkboxes input[name="type[]"]:checked')) {
+				errors.push('Please select at least one Type of Support')
+			}
+
+
 			// show error message
 
 			if(errors.length) {
@@ -100,7 +106,7 @@
 			    }
 
 				// get recaptcha widgetId
-				let widgetId = document.getElementById('recaptcha1').getAttribute('data-widgetid');	
+				let widgetId = document.getElementById('recaptcha5').getAttribute('data-widgetid');	
 
 
 			    let response = grecaptcha.getResponse(widgetId);
@@ -115,6 +121,7 @@
 					element.removeAttribute('disabled');
 				});	
 				let postData = utilities.serialize(myForm);
+				console.log(postData);
 				let url = myForm.getAttribute('action');
 
 				let request =  utilities.ajaxRequest(url, postData, 'POST')
@@ -153,11 +160,11 @@
 
 	// Function to be called when DOM is ready
 	var callbackCU = function() {
-		MODSTAYCONNECTED.myForm = document.querySelector('form[id^="stay-connected-"]');
+		MODLEARNMORE.myForm = document.querySelector('form[id^="learn-more-"]');
 		//set correct alert parent
-		MODSTAYCONNECTED.alertContainer = document.getElementById('system-message-container');
+		MODLEARNMORE.alertContainer = document.getElementById('system-message-container');
 
-		MODSTAYCONNECTED.formSubmit();
+		MODLEARNMORE.formSubmit();
 	}
 
 	// Check if DOM is ready

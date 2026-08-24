@@ -19,7 +19,6 @@
 	use Joomla\CMS\Language\Text;
 	use Joomla\CMS\Router\Route;
 	use Joomla\CMS\HTML\HTMLHelper;
-
 														
 
 ?>
@@ -36,21 +35,6 @@
 			</p>
 		</div>
 	<?php endif; ?>
-
-<script type="text/javascript">
-    var CaptchaCallback = function() {
-    	const recaptchaDivs = document.querySelectorAll('.g-recaptcha');
-
-		[].forEach.call(recaptchaDivs, function(div){						
-			let widgetId = grecaptcha.render(div, {
-				'sitekey' : div.getAttribute('data-sitekey'),
-				'size'	: div.getAttribute('data-size'),
-				'callback' : div.getAttribute('data-callback')
-			});
-			div.setAttribute('data-widgetid', widgetId);
-		});			
-    };
-</script>
 				
 
 	<?php if(!empty($siteKey) && !empty($secretKey)): ?>
