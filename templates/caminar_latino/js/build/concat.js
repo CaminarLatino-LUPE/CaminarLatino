@@ -568,8 +568,9 @@ const caminarlatino = caminarlatino || {
       
 
       if((utilities.hasClass(e.target, 'btn-modal') )) {
+        e.preventDefault();
 
-        let modalTarget = leverBtn !== null ? e.target.parentNode.getAttribute('data-target') : e.target.getAttribute('data-target');
+        let modalTarget = e.target.getAttribute('data-target');
         let modal = document.querySelector('[data-modal="' + modalTarget + '"]');
  
         if(modal !== null) {
@@ -1216,6 +1217,26 @@ track.addEventListener("click", onClickCapture, true); // capture phase, runs be
 
   },
 
+  // function to display team member bio info
+  teamBio: () => {
+    const bioLinks = document.querySelectorAll('.member-info .btn-modal');
+
+    if (bioLinks === null) return;
+
+    bioLinks.forEach((link, index) => {      
+      link.addEventListener('click', (e) => {
+        let modal = document.querySelector('[data-modal="' + link.getAttribute('data-target') + '"]');
+        const teamMoreText = link.closest('article').querySelector('.member-more').innerHTML;
+        modal.querySelector('.modal-inner').innerHTML = teamMoreText;
+      });
+    })
+
+
+
+  },
+
+
+
   // Function to be called when DOM is ready
   callback: () => {
 
@@ -1233,6 +1254,7 @@ track.addEventListener("click", onClickCapture, true); // capture phase, runs be
       caminarlatino.paneReveal();
       caminarlatino.galleryVideos();
       caminarlatino.safeEscape();
+      caminarlatino.teamBio();
   },
 
 

@@ -11,9 +11,10 @@
 	left: 50%;
 	width: calc(100% - 40px);
 	min-width: 360px;
-	max-width: 620px;
+	max-width: 1000px;
 	max-height: calc(100% - 100px);
-	background: gray;
+	background: #FFF;
+	border-radius: 30px;
 	overflow-y: auto;
 	overflow-x: hidden;
 	z-index: list.index(base.$elements, modal);
